@@ -1,0 +1,81 @@
+ul {
+    margin: 0;
+
+}
+
+.answers-test {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.answers-test-text {
+
+    color: #dcdcf3;
+}
+
+.answer-test-name {
+    color: #6933DC;
+}
+
+.answers-test img {
+    margin: 0 4px;
+}
+
+.answers-content-title {
+    margin: 60px 0;
+}
+
+.answers-questions > *:not(:last-child) {
+    margin-bottom: 60px;
+}
+
+.answer-question-title {
+    font-weight: 600;
+    font-size: 36px;
+    color: #333;
+}
+
+.answer-question-title span {
+    color: #6933dc;
+}
+
+.answer-question-options {
+    margin-top: 20px;
+}
+
+.answer-question-options-ul {
+    list-style: url("../images/radiobutton.png");
+    padding-left: 27px;
+}
+
+.test-question-option {
+    list-style-type: disc;
+    padding-top: 20px;
+    padding-left: 13px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333;
+}
+
+.test-question-option span {
+    position: relative;
+    top: -4px;
+}
+
+.correct-answer {
+    list-style: url("../images/radiobutton-green.png");
+    color: #5FDC33;
+}
+
+.wrong-answer {
+    list-style: url("../images/radiobutton-red.png");
+    color: #DC3333;
+}
+
+.answers-link-back {
+    text-align: right;
+}
+
+.arrow-answers {
+    margin-left: 13px;
+}
