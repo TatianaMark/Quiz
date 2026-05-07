@@ -156,7 +156,7 @@
             } else {
                 this.userResult.push({
                     questionId: activeQuestion.id,
-                    chosenAnswerID: chosenAnswerId,
+                    chosenAnswerId,
                 });
             }
 
@@ -199,7 +199,7 @@
             // ========== ВОТ ЭТА ЧАСТЬ СОБИРАЕТ ОТВЕТЫ ==========
             // Преобразуем массив ответов в JSON строку и кодируем для URL
             const answersJson = encodeURIComponent(JSON.stringify(this.userResult));
-            console.log('Ответы пользователя в JSON:', answersJson);
+
 
             xhr.open('POST', 'http://testologia.site/pass-quiz?id=' + id, false);
             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -218,7 +218,7 @@
                     location.href = 'index.html'
                 }
                 if (result) {
-                    location.href = 'result.html?score=' + result.score + '&total=' + result.total + '&id=' + id;
+                    location.href = 'result.html?score=' + result.score + '&total=' + result.total + '&id=' + id + '&answers=' + answersJson;
                 }
             } else {
                 location.href = 'index.html';

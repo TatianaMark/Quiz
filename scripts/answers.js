@@ -12,7 +12,6 @@
             this.initBackLink();
 
             if (!this.answersId) {
-                console.log('ID не передан');
                 location.href = 'index.html';
                 return;
             }
@@ -59,20 +58,17 @@
             const url = new URL(location.href);
             const answersParam = url.searchParams.get('answers');
 
-            console.log('Параметр answers из URL:', answersParam);
 
             if (answersParam) {
                 try {
                     // Декодируем и парсим JSON
                     const decodedAnswers = decodeURIComponent(answersParam);
                     this.userAnswers = JSON.parse(decodedAnswers);
-                    console.log('Ответы пользователя загружены из URL:', this.userAnswers);
                 } catch (e) {
                     console.error('Ошибка парсинга ответов из URL:', e);
                     this.userAnswers = [];
                 }
             } else {
-                console.log('Параметр answers не найден в URL');
                 this.userAnswers = [];
             }
         },
@@ -85,7 +81,6 @@
             if (xhr.status === 200 && xhr.responseText) {
                 try {
                     this.rightAnswers = JSON.parse(xhr.responseText);
-                    console.log('Верные ответы:', this.rightAnswers);
                     this.loadQuiz();
                 } catch (e) {
                     console.error('Ошибка парсинга ответов:', e);
@@ -105,7 +100,6 @@
             if (xhr.status === 200 && xhr.responseText) {
                 try {
                     this.quiz = JSON.parse(xhr.responseText);
-                    console.log('Данные теста:', this.quiz);
                     this.showAnswers();
                 } catch (e) {
                     console.error('Ошибка парсинга теста:', e);
@@ -183,7 +177,7 @@
                 }
 
                 const answerSpan = document.createElement('span');
-                answerSpan.textContent = this.escapeHtml(answer.answer);
+                answerSpan.textContent = answer.answer;
                 listItem.appendChild(answerSpan);
                 optionsList.appendChild(listItem);
             });
@@ -225,15 +219,15 @@
             }
         },
 
-        escapeHtml(str) {
-            if (!str) return '';
-            return str
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#39;');
-        }
+        // escapeHtml(str) {
+        //     if (!str) return '';
+        //     return str
+        //         .replace(/&/g, '&amp;')
+        //         .replace(/</g, '&lt;')
+        //         .replace(/>/g, '&gt;')
+        //         .replace(/"/g, '&quot;')
+        //         .replace(/'/g, '&#39;');
+        // }
     };
 
     if (document.readyState === 'loading') {
